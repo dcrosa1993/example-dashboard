@@ -60,7 +60,7 @@ Example format:
     ...
   ]
 }
-
+```
 ⚙️ Persistence Strategy
 
 All user state (auth, assignments, edits) is stored in localStorage. This allows full client-side operation without needing a backend.
