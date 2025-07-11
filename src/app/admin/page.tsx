@@ -41,12 +41,12 @@ export default function AdminPage() {
     <div className="p-6 grid grid-cols-2 gap-4">
       <Card>
         <CardHeader>
-          <CardTitle>Empresas</CardTitle>
+          <CardTitle>Company</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
           <div className="flex gap-2">
             <Input
-              placeholder="Nueva empresa"
+              placeholder="New company"
               value={newCompanyName}
               onChange={(e) => setNewCompanyName(e.target.value)}
             />
@@ -56,7 +56,7 @@ export default function AdminPage() {
                 setNewCompanyName('')
               }}
             >
-              Añadir
+              Add
             </Button>
           </div>
           {companies.map((c) => (
@@ -79,12 +79,12 @@ export default function AdminPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Usuarios</CardTitle>
+          <CardTitle>Users</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
           <div className="grid grid-cols-3 gap-2">
             <Input
-              placeholder="Nombre"
+              placeholder="Name"
               value={newUser.name || ''}
               onChange={(e) =>
                 setNewUser((u) => ({ ...u, name: e.target.value }))
@@ -103,7 +103,7 @@ export default function AdminPage() {
               }
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Empresa" />
+                <SelectValue placeholder="Company" />
               </SelectTrigger>
               <SelectContent>
                 {companies.map((c) => (
@@ -120,7 +120,7 @@ export default function AdminPage() {
               setNewUser({ name: '', email: '' })
             }}
           >
-            Añadir usuario
+            Add user
           </Button>
 
           {users.map((u) => (
@@ -132,7 +132,7 @@ export default function AdminPage() {
                 {u.name} — {u.email}{' '}
                 <span className="text-sm text-muted-foreground">
                   ({companies.find((c) => c.id === u.companyId)?.name ||
-                    'Sin empresa'})
+                    'Whitout company'})
                 </span>
               </div>
               <Button
@@ -140,7 +140,7 @@ export default function AdminPage() {
                 size="sm"
                 onClick={() => deleteUser(u.id)}
               >
-                Borrar
+                Delete
               </Button>
             </div>
           ))}
